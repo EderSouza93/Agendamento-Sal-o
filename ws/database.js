@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
-const URI = 'mongodb+srv://salaoUser:zu0TwoBdn8Ne37jH@clusterdev.scywyeq.mongodb.net/?retryWrites=true&w=majority';
+const URI = 'mongodb+srv://user_DB:5ohl8eBVPbAZlU6t@clusterdev.scywyeq.mongodb.net/salao-na-mao?retryWrites=true&w=majority';
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect(URI)
-.then(() => console.log('DB is Up!'))
-.catch(() => console.log('Erro ao conectar ao DB'));
+main().catch(err => console.log(err));
+
+async function main(){
+    await mongoose.connect(URI).then(() => console.log('DB is Up!')).catch(() => console.log('Erro ao conectar ao DB'));
+};
