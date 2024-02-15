@@ -1,10 +1,10 @@
 const AWS = require('aws-sdk');
 
 module.exports = {
-    IAM_USER_KEY: '',
-    IAM_USER_SECRET: '',
-    BUCKET_NAME: '',
-    AWS_REGION: '',
+    IAM_USER_KEY: 'AKIA3FLD6BWIOYO6BUFF',
+    IAM_USER_SECRET: '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',
+    BUCKET_NAME: 'salao-na-mao-project',
+    AWS_REGION: 'us-east-1',
     uploadToS3: function (file, filename, acl = 'public-read'){
         return new Promise((resolve, reject) => {
             let IAM_USER_KEY = this.IAM_USER_KEY;
@@ -28,7 +28,7 @@ module.exports = {
                 s3bucket.upload(params, function (err, data) {
                     if (err) {
                         console.log(err);
-                        return resolve({ error: true, message: err });
+                        return resolve({ error: true, message: err.message });
                     }
                     console.log(data);
                     return resolve({ error: false, message: data });
